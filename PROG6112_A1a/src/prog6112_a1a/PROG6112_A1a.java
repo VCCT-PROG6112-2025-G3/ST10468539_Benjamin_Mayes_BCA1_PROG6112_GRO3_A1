@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class PROG6112_A1a {
 
     public static void main(String[] args) {
+        
         // create table 
         ArrayList<String[]> Serieses = new ArrayList<>(); 
         

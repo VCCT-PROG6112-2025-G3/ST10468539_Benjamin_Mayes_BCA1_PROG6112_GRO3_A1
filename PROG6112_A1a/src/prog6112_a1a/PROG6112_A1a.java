@@ -38,11 +38,7 @@ public class PROG6112_A1a {
         
         ans = ans.trim(); 
         
-        exit = !ans.equals("1"); 
-        
-        /* Fetched code from W3 schools for valitading a condition being false 
-        https://www.w3schools.com/java/java_operators.asp  */ 
-        
+        exit = !ans.equals("1");         
         // main menu 
         while (!exit) { 
             /*
@@ -225,16 +221,3 @@ public class PROG6112_A1a {
         } 
     }
 }
-
-/*
-sect A : 
-- variables declared and assigned (5m) 
-- menue and layout created (5m) 
-- saving and capturing values to memory (5m) 
-- searching for series + correct result (5m) 
-- delete a series + remove item from memory (5m) 
-- update a series - required memory item (5m) 
-- series report generated (3m) 
-- series class created with working methods (3m) 
-- good programming practice and comments (4m) 
-*/

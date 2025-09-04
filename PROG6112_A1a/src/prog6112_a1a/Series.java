@@ -107,9 +107,6 @@ class Series {
             }
         }
         
-        /* Fetched code from W3 schools for valitading a condition being false 
-        https://www.w3schools.com/java/java_operators.asp  */ 
-        
         if (!found) System.out.println("Series not found: Please enter a valid ID."); 
         
         return series; 
@@ -142,9 +139,6 @@ class Series {
                 break; 
             }
         }
-        
-        /* Fetched code from W3 schools for valitading a condition being false 
-        https://www.w3schools.com/java/java_operators.asp  */ 
         
         if (!found) System.out.println("Record not found: Please enter a valid ID."); 
         
@@ -182,9 +176,6 @@ class Series {
                 break; 
             }
         }
-        
-        /* Fetched code from W3 schools for valitading a condition being false 
-        https://www.w3schools.com/java/java_operators.asp  */ 
         
         if (!found) System.out.println("Series not found: Please enter a valid ID."); 
         

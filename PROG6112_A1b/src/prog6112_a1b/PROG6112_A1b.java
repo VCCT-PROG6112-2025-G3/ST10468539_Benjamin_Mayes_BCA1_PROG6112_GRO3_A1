@@ -1,16 +1,4 @@
 
-/*
-ghost game : 
-
-loop :
-three doors ahead, a ghost behind one, which door do you open 
-three booleans for each door 
-- one is assigned true 
-- rest are false 
-if false : repeat loop 
-else end game 
-- display score, duration, average decision duration, No. rounds 
-*/
 package prog6112_a1b;
 
 /*
@@ -123,35 +111,3 @@ public class PROG6112_A1b {
                 + "\nRounds played: " + rounds    ); 
     }
 }
-
-/*
-there must be entities 
-- elimination powerup 
-- skip powerup 
-    - lower score when powerup used 
-- increase doors and ghosts by level 
-- 
-- inheritance constructors and hiding 
-- arrays = doors for each level 
-
-arrays, loops (while & for ), inheritance, constructors, information hiding 
-output must be shown as report using console 
-unit tests - ensure desired results are achieved 
-IMPORTANT CONTENT 
-- LU1 : advanced arrays 
-- LU2 : intro to inheritance 
-
-marks 
-- 3 marks : variables declared 
-- console application created with acceptable layout (4m) 
-- uses 
-    - arrays, $$$ 
-    - loops, $$$ 
-    - inheritance, $$$
-    - constructors, 
-    - information hiding (5m) $$$ 
-- good coding practice + comments (4m) 
-- creative, more than baisic functionality and effort (4m) 
-    - creativity with extra effort 
-- unit tests : prove code functions as intended (15m) 
-*/

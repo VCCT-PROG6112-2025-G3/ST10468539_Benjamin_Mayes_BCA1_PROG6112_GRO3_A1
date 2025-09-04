@@ -1,10 +1,8 @@
 
 package prog6112_a1b;
 
-/*
-Fetched code from Apache NetBeans for creating JUnit tests 
-https://netbeans.apache.org/tutorial/main/kb/docs/java/junit-intro/#_writing_junit_4_tests
-*/
+/* Fetched code from Apache NetBeans for creating JUnit tests 
+https://netbeans.apache.org/tutorial/main/kb/docs/java/junit-intro/#_writing_junit_4_tests */
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

@@ -2,15 +2,22 @@
 package prog6112_a1a;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class Series {
-    public String SeriesId; 
-    public String SeriesName; 
-    public String SeriesAge; 
-    public String SeriesNumberOfEpisodes; 
+class Series {
+    /* Fetched code from W3 schools for implementing modifiers 
+    https://www.w3schools.com/java/java_modifiers.asp */
     
-    public Series (String SeriesId, 
+    private String SeriesId; 
+    private String SeriesName; 
+    private String SeriesAge; 
+    private String SeriesNumberOfEpisodes; 
+    
+    /*
+    Fetched code from Geeks for Geeks for implementing constructors 
+    https://www.geeksforgeeks.org/java/constructors-in-java/
+    */
+    
+    Series (String SeriesId, 
             String SeriesName, 
             String SeriesAge, 
             String SeriesNumberOfEpisodes ) {
@@ -20,7 +27,9 @@ public class Series {
         this.SeriesNumberOfEpisodes = SeriesNumberOfEpisodes; 
     }
     
-    public static String createId(ArrayList<String[]> Serieses) {
+    /* Fetched code from W3 schools for implementing modifiers 
+    https://www.w3schools.com/java/java_modifiers.asp */
+    private static String createId(ArrayList<String[]> Serieses) {
         String idCode = new String(); 
         String id = new String(); 
         int Id = 0; 
@@ -62,24 +71,12 @@ public class Series {
         
         return id; 
     }
-    public static ArrayList<String[]> CaptureSeries(ArrayList<String[]> Serieses) {
-        // ===================prompt-info=====================
-        Scanner seriesInfo = new Scanner(System.in); 
-        
+    static ArrayList<String[]> CaptureSeries(ArrayList<String[]> Serieses, 
+            String name, 
+            String age, 
+            String noEpisodes   ) {
         // generate seriesId 
         String id = createId(Serieses); // 12345678; 
-        
-        // prompt series Name 
-        System.out.print("Please enter the name of the series: ");
-        String name = seriesInfo.nextLine(); 
-        
-        // prompt series age 
-        System.out.print("Please enter the age restriction of the series: ");
-        String age = seriesInfo.nextLine(); 
-        
-        // series number of episodes 
-        System.out.print("Please enter the number of episodes in the series: ");
-        String noEpisodes = seriesInfo.nextLine(); 
         
         // create new series object 
         String[] x = {id, name, age, noEpisodes}; 
@@ -97,20 +94,27 @@ public class Series {
         // return series object 
         return Serieses; 
     }
-    public static String[] SearchSeries(ArrayList<String[]> Serieses, String id) {
+    static String[] SearchSeries(ArrayList<String[]> Serieses, String id) {
         // search for series 
-        String[] series = new String[4]; 
+        boolean found = false; 
+        String[] series = {"None found"}; 
         for (String[] rec : Serieses){
             if (rec[0].equals(id)) {
                 series = rec; 
+                
+                found = true; 
                 break; 
             }
         }
         
+        /* Fetched code from W3 schools for valitading a condition being false 
+        https://www.w3schools.com/java/java_operators.asp  */ 
+        
+        if (!found) System.out.println("Series not found: Please enter a valid ID."); 
+        
         return series; 
     }
-    
-    public static ArrayList<String[]> UpdateSeries(ArrayList<String[]> Serieses, 
+    static ArrayList<String[]> UpdateSeries(ArrayList<String[]> Serieses, 
             String id, 
             String newName, 
             String newAge, 
@@ -118,24 +122,47 @@ public class Series {
         // create new record 
         String[] newRec = {id, newName, newAge, newNoEpisodes}; 
         
+        /*
+        Fetched code from W3 schools for creating an index-based for loop 
+        https://www.w3schools.com/java/java_arrays_loop.asp
+        */
+        
         // search for series 
-        for (String[] rec : Serieses){
+        boolean found = false; 
+        for (int i = 0; i < Serieses.size(); i++){
+            String[] rec = Serieses.get(i); 
             if ( rec[0].equals(id) ) {
-                rec = newRec; 
+                /* Fetched code from W3 schools for updating an ArrayList element 
+                https://www.w3schools.com/java/java_arraylist.asp */
+                
+                // insert into arraylist         
+                Serieses.set(i, newRec); 
+                
+                found = true; 
                 break; 
             }
         }
-
-        // insert into arraylist         
+        
+        /* Fetched code from W3 schools for valitading a condition being false 
+        https://www.w3schools.com/java/java_operators.asp  */ 
+        
+        if (!found) System.out.println("Record not found: Please enter a valid ID."); 
         
         return Serieses; 
     }
-    
-    public static ArrayList<String[]> DeleteSeries(ArrayList<String[]> Serieses, Scanner scan, String id) {
+    static ArrayList<String[]> DeleteSeries(ArrayList<String[]> Serieses, String id) {
         boolean found = false; 
         for (String[] rec : Serieses) {
-            if (rec[0].equals(id.trim())) {
-                String ans = new String(); 
+            /*
+            Fetched code from W3 schools for trimming whitespace 
+            https://www.w3schools.com/java/ref_string_trim.asp
+            */
+            
+            if ( rec[0].equals(id.trim()) ) {
+                /*
+                Fetched code from W3 schools for implementing System.out.printf()
+                https://www.w3schools.com/java/ref_output_printf.asp
+                */
                 
                 // display details 
                 System.out.printf("SeriesID: %s;"
@@ -147,47 +174,39 @@ public class Series {
                         rec[2] , 
                         rec[3]  );
                 
-                // confirm deletion 
-                boolean validAns = false; 
-                while (!validAns) { 
-                    System.out.print("are you sure you want to delete this series (enter yes/no) : ");
-                    ans = scan.nextLine(); 
-                    ans = ans.trim(); 
-                    if (ans.equals("no") || ans.equals("yes")) validAns = true; 
-                } 
-                
                 // delete the record 
-                if (ans.equals("yes")) { 
-                    Serieses.remove(rec);
-                    System.out.println("Series Successfully deleted."); 
-                } else System.out.println("Deletion aborted."); 
+                Serieses.remove(rec);
+                System.out.println("Series Successfully deleted."); 
                 
                 found = true; 
                 break; 
             }
         }
         
-        if (!found) System.out.println("Series not found"); 
+        /* Fetched code from W3 schools for valitading a condition being false 
+        https://www.w3schools.com/java/java_operators.asp  */ 
+        
+        if (!found) System.out.println("Series not found: Please enter a valid ID."); 
         
         return Serieses; 
     }
-    public static void SeriesReport(ArrayList<String[]> Serieses) {
+    static void SeriesReport(ArrayList<String[]> Serieses) {
         int totalSerieses = 0; 
         int totalEpisodes = 0; 
+        
+        // cycle through list of serieses 
         for (String[] rec : Serieses){
             totalSerieses += 1; 
             totalEpisodes += Integer.parseInt(rec[3]); 
         }
         
-        // print all serieses and their detals 
-            // age restrictions and numbers of each 
-        
+        // print statistics of the serieses arraylist 
         System.out.println("SERIES REPORT\n"
                 + "*".repeat(40)
                 + "\nTotal number of serieses: " +totalSerieses
                 + "\nTotal number of episodes: " +totalEpisodes ); 
     }
-    public static boolean ExitSeriesApplication () { 
+    static boolean ExitSeriesApplication () { 
         System.out.println("Closing application."); 
         return true; 
     }

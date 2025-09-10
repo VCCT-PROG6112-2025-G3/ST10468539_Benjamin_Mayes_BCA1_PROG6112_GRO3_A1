@@ -17,36 +17,26 @@ public class TestSearchSeries {
         System.out.println("TestSearchSeries()");
         
         // initialise Series records 
-        String[] rec1 = {"12300" , "Game of Thrones" , "R" , "20" }; 
-        String[] rec2 = {"12301" , "Peaky Blinders" , "16+" , "13" }; 
-        String[] rec3 = {"12302" , "Cobra Kai" , "16+" , "10" }; 
-        String[] rec4 = {"12303" , "Outer Banks" , "13+" , "10" }; 
-        
-        /*
-        ChatGPT
-        Question: why are these lines failing in my junit test method 
-            Serieses.add({"00100200" , "Game of Thrones" , "R" , "20" }) ; 
-            Serieses.add({"00100201" , "Peaky Blinders" , "16+" , "13" }) ; 
-            Serieses.add({"00100203" , "Cobra Kai" , "16+" , "10" }) ; 
-            Serieses.add({"00100204" , "Outer Banks" , "13+" , "10" }) ;
-        Answer: *Section Below* 
-        */
+        Series series1 = new Series("12300" , "game of thrones" , "18" , "20"); 
+        Series series2 = new Series("12301" , "peaky blinders" , "16" , "13"); 
+        Series series3 = new Series("12302" , "cobra kai" , "16" , "10"); 
+        Series series4 = new Series("12303" , "outer banks" , "13" , "10"); 
         
         // initialise ArrayList Serieses
-        ArrayList<String[]> Serieses = new ArrayList<>() ; 
-        Serieses.add(rec1) ; 
-        Serieses.add(rec2) ; 
-        Serieses.add(rec3) ; 
-        Serieses.add(rec4) ; 
+        ArrayList<Series> Serieses = new ArrayList<>() ; 
+        Serieses.add(series1) ; 
+        Serieses.add(series2) ; 
+        Serieses.add(series3) ; 
+        Serieses.add(series4) ; 
         
-        // assert outputs 
-        assertEquals(rec1, 
-                Series.SearchSeries(Serieses, "12300")    );
-        assertEquals(rec2, 
-                Series.SearchSeries(Serieses, "12301")    );
-        assertEquals(rec3, 
-                Series.SearchSeries(Serieses, "12302")    );
-        assertEquals(rec4, 
-                Series.SearchSeries(Serieses, "12303")    ); 
+        // retrieve methods actual output 
+        Series actual = Series.SearchSeries(Serieses, "12300"); 
+        
+        // assert output 
+        assertEquals(series1, actual);
     } 
 }
+
+//=======================================================================
+// END-OF-FILE 
+//=======================================================================

@@ -129,6 +129,9 @@ class Series { // create series class
         try { // validate if String Age is a whole number 
             int ageNum = Integer.parseInt(Age); // try converting Age to int 
             
+            /* Fetched code from W3 schools for using try-catch-finally block 
+            https://www.w3schools.com/java/java_try_catch.asp */ 
+            
             // validate if integer ageNum is between 0 and 25 
             valid = ageNum>=0 
                     && ageNum<=25 ; 
@@ -142,6 +145,9 @@ class Series { // create series class
     // method to validate the number of episodes 
     static boolean SeriesNumberOfEpisodes(String NoEpisodes) {
         boolean valid = false; // declare and initialise valid boolean 
+        
+        /* Fetched code from W3 schools for using try-catch-finally block 
+        https://www.w3schools.com/java/java_try_catch.asp */ 
         
         try { // validate if String NoEpisodes is a whole number 
             int ageNum = Integer.parseInt(NoEpisodes); // try converting NoEpisodes to int 
